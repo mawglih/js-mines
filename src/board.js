@@ -12,7 +12,7 @@ export class Board {
         if(this._playerBoard[rowIndex][columnIndex] !== ' ') {
             console.log('This tile already was flipped');
             return;
-        } else if(this._playerBoard[rowIndex][columnIndex] == 'B') {
+        } else if(this._bombBoard[rowIndex][columnIndex] == 'B') {
             this._playerBoard[rowIndex][columnIndex] = 'B';
         } else {
             this._playerBoard[rowIndex][columnIndex] = this.getNumberOfNeighborBombs(rowIndex, columnIndex);
@@ -37,7 +37,7 @@ export class Board {
             const neighborRowIndex = rowIndex + el[0];
             const neighborColumnIndex = columnIndex + el[1];
             if( neighborRowIndex >= 0 && neighborRowIndex < numberOfRows && neighborColumnIndex >= 0 && neighborColumnIndex < numberOfColumns) {
-                if(this._bombBoard[neighborRowIndex][neighborColumnIndex] == 'B'){
+                if(this._bombBoard[neighborRowIndex][neighborColumnIndex] === 'B'){
                     numberOfBombs++;
                 }
             }

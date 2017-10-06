@@ -8,7 +8,7 @@
 // game.playMove(1, 2);
 // When done run `.exit`
 import { Board } from './board';
-export class Game {
+class Game {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
         this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
     }
@@ -17,7 +17,7 @@ export class Game {
         if(this._board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log('Game is over! Final board: ');
             this._board.print();
-        } else if(Board.hasSafeTiles) {
+        } else if(!this._board.hasSafeTiles) {
             console.log('You win!');
         } else {
             console.log('Current board: ');
